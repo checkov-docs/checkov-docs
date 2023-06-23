@@ -1,0 +1,6 @@
+{
+    "check_type": "terraform",
+    "results": {
+        "skipped_checks": []
+    }
+}

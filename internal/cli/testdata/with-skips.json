@@ -1,0 +1,16 @@
+{
+    "check_type": "terraform",
+    "results": {
+        "skipped_checks": [
+            {
+                "check_id": "CKV_AWS_115",
+                "check_result": {
+                    "result": "SKIPPED",
+                    "suppress_comment": " hello world"
+                },
+                "file_path": "/main.tf",
+                "resource": "aws_lambda_function.example"
+            }
+        ]
+    }
+}
