@@ -3,6 +3,10 @@ name: pr
 on:
   pull_request:
 
+permissions:
+  pull-requests: write
+  issues: write
+
 jobs:
   size-labeler:
     runs-on: ubuntu-latest
