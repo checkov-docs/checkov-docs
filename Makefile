@@ -26,6 +26,9 @@ default: build
 build:
 	go build -o ./bin/$(GOOS)-$(GOARCH)/checkov-docs
 
+local-release:
+	goreleaser release --clean --skip-publish --skip-docker --skip-validate
+
 lint:
 	golangci-lint run ./...
 

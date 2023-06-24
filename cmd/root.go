@@ -47,9 +47,10 @@ var rootCmd = &cobra.Command{
 	Short:         "Generate docs for checkov results",
 	Long:          "Generate docs for checkov results",
 	Annotations:   map[string]string{"command": "root"},
-	Version:       version.GetFullVersion(),
+	Version:       version.GetVersion(),
 	SilenceErrors: true,
 	SilenceUsage:  true,
+	Args:          cobra.NoArgs,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		cmdLogger.SetLogLevel(getLogLevel())
 		err := initConfig()
@@ -87,6 +88,7 @@ func Execute() error {
 }
 
 func init() {
+	rootCmd.SetVersionTemplate("{{.Version}}")
 	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", ".checkov-docs.yaml", "config file")
 	rootCmd.PersistentFlags().StringVarP(&inputFile, "input-file", "i", "", "input file, valid formats: json")
 	rootCmd.PersistentFlags().StringVarP(&outputFile, "output-file", "o", "README.md", "output file")
@@ -140,7 +142,7 @@ func initConfig() error {
 	return nil
 }
 
-// getViperLogLevel returns "DEBUG" if `debug` flag is used, else it returns "INFO".
+// getViperLogLevel returns "DEBUG" if `verbose` flag is used, else it returns "INFO".
 func getLogLevel() string {
 	switch viper.GetBool("verbose") {
 	case true:

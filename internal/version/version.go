@@ -23,23 +23,44 @@ THE SOFTWARE.
 package version
 
 import (
-	"fmt"
-	"runtime"
+	_ "embed"
+
+	goversion "github.com/caarlos0/go-version"
 )
 
 var (
-	version = "0.1.0"
+	version = ""
+	commit  = ""
+	date    = ""
+	builtBy = ""
 )
 
-func getVersion() string {
-	if version != "" {
-		return version
-	}
+//go:embed art.txt
+var asciiArt string
 
-	return "1.0.0"
-}
+const projectURL = "https://github.com/checkov-docs/checkov-docs"
 
-// GetFullVersion returns the latest version including runtime GOOS and GOARCH details.
-func GetFullVersion() string {
-	return fmt.Sprintf("v%s %s/%s", getVersion(), runtime.GOOS, runtime.GOARCH)
+// GetVersion returns the latest version including runtime GOOS and GOARCH and more.
+func GetVersion() string {
+	v := goversion.GetVersionInfo(
+		goversion.WithAppDetails("checkov-docs", "Generate docs for checkov results", projectURL),
+		goversion.WithASCIIName(asciiArt),
+		goversion.WithBuiltBy(builtBy),
+		func(i *goversion.Info) {
+			if commit != "" {
+				i.GitCommit = commit
+			}
+			if version != "" {
+				i.GitVersion = version
+			}
+			if date != "" {
+				i.BuildDate = date
+			}
+			if builtBy != "" {
+				i.BuiltBy = builtBy
+			}
+		},
+	)
+
+	return v.String()
 }

@@ -17,6 +17,9 @@
 # Go workspace file
 go.work
 
+# goreleaser
+**/dist
+
 # Temp files
 /tmp/**
 
