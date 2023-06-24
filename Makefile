@@ -30,7 +30,7 @@ lint:
 	golangci-lint run
 
 test:
-	go test ./...
+	go test -v -covermode=atomic -coverprofile=coverage.out ./...
 
 pre-commit:
 	pre-commit run --all-files
