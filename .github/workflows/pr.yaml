@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Label PR size
-        uses: BedrockStreaming/pr-size-labeler@v1
+        uses: BedrockStreaming/pr-size-labeler@v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           xs_label: 'size/XS'
