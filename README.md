@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/checkov-docs/checkov-docs/branch/main/graph/badge.svg?token=X8ESNTI58A)](https://codecov.io/gh/checkov-docs/checkov-docs)
+
 # checkov-docs
 
 Generate documentation from [`checkov`](https://github.com/bridgecrewio/checkov) results.
