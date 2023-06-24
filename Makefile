@@ -27,7 +27,7 @@ build:
 	go build -o ./bin/$(GOOS)-$(GOARCH)/checkov-docs
 
 lint:
-	golangci-lint run
+	golangci-lint run ./...
 
 test:
 	go test -v -covermode=atomic -coverprofile=coverage.out ./...
