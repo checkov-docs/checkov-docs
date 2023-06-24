@@ -1,4 +1,8 @@
+[![ci](https://github.com/checkov-docs/checkov-docs/actions/workflows/ci.yaml/badge.svg)](https://github.com/checkov-docs/checkov-docs/actions/workflows/ci.yaml)
+[![codeql](https://github.com/checkov-docs/checkov-docs/actions/workflows/codeql.yaml/badge.svg)](https://github.com/checkov-docs/checkov-docs/actions/workflows/codeql.yaml)
 [![codecov](https://codecov.io/gh/checkov-docs/checkov-docs/branch/main/graph/badge.svg?token=X8ESNTI58A)](https://codecov.io/gh/checkov-docs/checkov-docs)
+[![Go Reference](https://pkg.go.dev/badge/github.com/checkov-docs/checkov-docs.svg)](https://pkg.go.dev/github.com/checkov-docs/checkov-docs)
+[![Go Report Card](https://goreportcard.com/badge/github.com/checkov-docs/checkov-docs)](https://goreportcard.com/report/github.com/checkov-docs/checkov-docs)
 
 # checkov-docs
 
