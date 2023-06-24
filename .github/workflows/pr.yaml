@@ -4,6 +4,7 @@ on:
   pull_request_target:
 
 permissions:
+  issues: write # required to work with issues
   pull-requests: write # required to work with PRs
 
 jobs:
@@ -11,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Apply size label
-        uses: codelytv/pr-size-labeler@v1
+        uses: codelytv/pr-size-labeler@v1.8.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           xs_label: 'size/XS'
