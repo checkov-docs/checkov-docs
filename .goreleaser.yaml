@@ -3,7 +3,11 @@ builds:
     env:
       - CGO_ENABLED=0
     ldflags:
-      - -s -w -X github.com/checkov-docs/checkov-docs/internal/version.version={{.Version}}
+      - -s -w
+      - -X github.com/checkov-docs/checkov-docs/internal/version.version={{.Version}}
+      - -X github.com/checkov-docs/checkov-docs/internal/version.commit={{.Commit}}
+      - -X github.com/checkov-docs/checkov-docs/internal/version.date={{.CommitDate}}
+      - -X github.com/checkov-docs/checkov-docs/internal/version.builtBy=goreleaser
     goos:
       - linux
       - windows
