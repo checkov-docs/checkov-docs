@@ -19,7 +19,7 @@ jobs:
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.0
 
-  lint:
+  golangci:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
@@ -30,9 +30,12 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version-file: 'go.mod'
+          cache: false
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
+        with:
+          args: ./...
 
   test:
     runs-on: ubuntu-latest
