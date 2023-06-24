@@ -10,7 +10,7 @@ jobs:
       - name: Apply size label
         uses: BedrockStreaming/pr-size-labeler@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           xs_label: 'size/XS'
           xs_diff: '30'
           s_label: 'size/S'
