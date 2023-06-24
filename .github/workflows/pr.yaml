@@ -3,28 +3,23 @@ name: pr
 on:
   pull_request_target:
 
-permissions:
-  issues: write # required to work with issues
-  pull-requests: write # required to work with PRs
-
 jobs:
   size-labeler:
     runs-on: ubuntu-latest
     steps:
       - name: Apply size label
-        uses: codelytv/pr-size-labeler@v1.8.1
+        uses: BedrockStreaming/pr-size-labeler@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           xs_label: 'size/XS'
-          xs_max_size: '30'
+          xs_diff: '30'
           s_label: 'size/S'
-          s_max_size: '60'
+          s_diff: '60'
           m_label: 'size/M'
-          m_max_size: '150'
+          m_diff: '150'
           l_label: 'size/L'
-          l_max_size: '300'
+          l_diff: '300'
           xl_label: 'size/XL'
-          message_if_xl: ''
 
   first-pr-comment:
     runs-on: ubuntu-latest
