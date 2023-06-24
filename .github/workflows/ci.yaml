@@ -13,13 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version-file: 'go.mod'
+      - name: Set up Python
+        uses: actions/setup-python@v3
 
       - name: Run pre-commit
-        run: make pre-commit
+        uses: pre-commit/action@v3.0.0
 
   lint:
     runs-on: ubuntu-latest
