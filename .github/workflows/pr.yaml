@@ -3,6 +3,9 @@ name: pr
 on:
   pull_request_target:
 
+permissions:
+  pull-requests: write # required to work with PRs
+
 jobs:
   size-labeler:
     runs-on: ubuntu-latest
